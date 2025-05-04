@@ -1,0 +1,6 @@
+1. Dodanie shelli
+2. Highliter z pygments
+3. Więcej języków
+4. Otwieranie linków
+5. zapisywanie do plików
+6. Od nowa baza danych exploitów
