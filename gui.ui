@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>AI Exploit Analyzer</string>
+   <string>Exploit Analyzer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -59,7 +59,7 @@
          <string>Search</string>
         </property>
         <property name="icon">
-         <iconset theme="accessories-character-map">
+         <iconset>
           <normaloff>.</normaloff>.</iconset>
         </property>
         <property name="iconSize">
@@ -87,7 +87,7 @@
        <bool>true</bool>
       </property>
       <property name="alternatingRowColors">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="gridStyle">
        <enum>Qt::SolidLine</enum>
@@ -166,6 +166,24 @@
        <layout class="QVBoxLayout" name="verticalLayout_analysis">
         <item>
          <widget class="QTextEdit" name="aiAnalysis"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="exportButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="exportPdfBtn">
+            <property name="text">
+             <string>Zapisz do PDF</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="exportDocxBtn">
+            <property name="text">
+             <string>Zapisz do DOCX</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
