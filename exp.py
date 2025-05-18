@@ -12,10 +12,10 @@ from PyQt6.uic import loadUi
 from dotenv import load_dotenv
 import os
 
-# Import funkcji highlightującej z pygments
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
+import qdarkstyle
 
 class GeminiWorker(QThread):
     finished = pyqtSignal(object)
@@ -55,7 +55,7 @@ class ExploitSearchApp(QMainWindow):
         if key:
             try:
                 genai.configure(api_key=key)
-                self.gemini = genai.GenerativeModel('gemini-1.5-pro-latest')
+                self.gemini = genai.GenerativeModel('gemini-2.0-flash-001')
             except Exception as e:
                 QMessageBox.warning(self, 'Error', f'AI configuration failed: {str(e)}')
         else:
@@ -110,17 +110,8 @@ class ExploitSearchApp(QMainWindow):
             lexer = get_lexer_by_name(language)
         except Exception:
             lexer = get_lexer_by_name('text')
-        # transparentne tło i brak obramowania dla całego kodu i elementów
-        css = (
-            '. { background: transparent !important; } '
-
-        )
-        formatter = HtmlFormatter(
-            style='monokai',
-            full=True,
-            noclasses=True,
-            cssstyles=css
-        )
+        css = '. { background: transparent !important; }'
+        formatter = HtmlFormatter(style='monokai', full=True, noclasses=True, cssstyles=css)
         return highlight(code, lexer, formatter)
 
     def search_exploits(self):
@@ -237,6 +228,7 @@ Dane exploita:
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt6'))
     window = ExploitSearchApp()
     window.show()
     sys.exit(app.exec())
