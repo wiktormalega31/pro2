@@ -179,7 +179,8 @@ class ExploitSearchApp(QMainWindow):
             return
 
         prompt = f"""Stwórz szczegółową analizę bezpieczeństwa w języku polskim. 
-Odpowiedz wyłącznie w formacie HTML (bez markdown). 
+Odpowiedz wyłącznie w formacie HTML (bez markdown), uwzględnij to że mój program 
+działa w ciemnym trybie. 
 Uwzględnij:
 
 1. Potencjalne wektory ataku
@@ -228,7 +229,7 @@ Dane exploita:
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt6'))
+    #app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyqt6'))
     window = ExploitSearchApp()
     window.show()
     sys.exit(app.exec())
